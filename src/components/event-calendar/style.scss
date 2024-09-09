@@ -1,0 +1,142 @@
+$border-color: #303030;
+$border-width: 1px;
+$value-capsule-bg: #2b2b2b;
+$event-bg-color: #177fbb;
+$event-bg-color_canceled: #e23636;
+$event-bg-color_pending: #d28d1e;
+
+.event-calendar {
+  user-select: none;
+  border-radius: 0.375rem;
+  background-color: #1a1d21;
+  color: white;
+  width: fit-content;
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    .control-icon {
+      background-color: $value-capsule-bg;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-out;
+      &:hover {
+        background-color: lighten($value-capsule-bg, 5);
+      }
+    }
+    .period {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #989898;
+      gap: 3px;
+    }
+  }
+  table {
+    border-collapse: collapse;
+    th,
+    td {
+      border-collapse: collapse;
+    }
+    tr:first-child {
+      border-top: $border-width solid $border-color;
+    }
+    .hour-header {
+      position: relative;
+      min-width: 80px;
+      height: 50px;
+      &::after {
+        content: "";
+        position: absolute;
+        height: 15px;
+        width: $border-width;
+        background-color: $border-color;
+        left: 0;
+        bottom: 0;
+      }
+      .hour-value {
+        position: absolute;
+        top: calc(50% - 3px);
+        left: 0;
+        transform: translate(-50%, -50%);
+        background-color: $value-capsule-bg;
+        border-radius: 5px;
+        padding: 5px 7px;
+        font-size: 0.7rem;
+      }
+    }
+    .day-col {
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-bottom: $border-width solid $border-color;
+      padding-left: 10px;
+      .day-value {
+        width: 100%;
+        display: block;
+        padding: 8px 7px;
+        background-color: $value-capsule-bg;
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        &.today {
+          background-color: $event-bg-color;
+        }
+      }
+    }
+    .value-cell {
+      position: relative;
+      min-width: 80px;
+      height: 50px;
+      border-bottom: $border-width solid $border-color;
+      padding: 0 10px;
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: $border-width;
+        background-color: $border-color;
+        left: 0;
+        bottom: 0;
+      }
+      .event {
+        width: 100%;
+        text-align: start;
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-overflow: ellipsis;
+        padding: 7px;
+        border-radius: 5px;
+        user-select: none;
+        cursor: pointer;
+        transition: background-color 0.2s ease-out;
+        &.pending {
+          background-color: $event-bg-color_pending;
+          &:hover {
+            background-color: darken($event-bg-color_pending, 8);
+          }
+        }
+        &.scheduled {
+          background-color: $event-bg-color;
+          &:hover {
+            background-color: darken($event-bg-color, 8);
+          }
+        }
+        &.canceled {
+          background-color: $event-bg-color_canceled;
+          &:hover {
+            background-color: darken($event-bg-color_canceled, 8);
+          }
+        }
+      }
+    }
+  }
+}

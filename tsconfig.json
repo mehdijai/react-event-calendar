@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "ESNext",
+    "target": "ES5",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "strict": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitOverride": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "checkJs": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
+}
