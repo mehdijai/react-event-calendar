@@ -6,6 +6,10 @@ Event calendar React component. A basic week timeline event calendar.
 
 The calendar use 24h mode, and default format is `DD/MM/YYYY`. In later updates there will be configurable formats and time mode.
 
+## Demo
+
+You will find a demo here: [Demo Page](https://react-event-calendar.pages.dev)
+
 ## Use
 
 Call the component:
