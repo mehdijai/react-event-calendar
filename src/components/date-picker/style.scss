@@ -1,22 +1,65 @@
 .date-picker_wrapper {
   position: relative;
+  .date-picker-input__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border: 1px solid hsl(206, 6%, 23%);
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s ease-out;
+    &:hover {
+      background-color: darken(#1a1d21, 1);
+    }
+  }
   .date-picker {
+    display: none;
     position: absolute;
-    inset: 0;
-    width: 18rem;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0.5rem);
     border-radius: 0.375rem;
-    border-width: 1px;
-    background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     box-shadow: 0 4px 6px hsl(var(--background) / 0.1);
     z-index: 50;
-    border-color: hsl(206, 6%, 23%);
-  }
-}
 
-.shad-dialog {
-  --tw-border-opacity: 1;
-  border-color: #363a3d !important;
-  --tw-bg-opacity: 1;
-  background-color: #1a1d21 !important;
+    &.show {
+      display: block;
+    }
+
+    .rdp-root {
+      --rdp-accent-color: hsl(
+        var(--foreground)
+      ); /* Change the accent color to indigo. */
+      --rdp-accent-background-color: #f0f0f0; /* Change the accent background color. */
+      /* Add more CSS variables here. */
+    }
+
+    .rdp-selected {
+      background: lighten(#1a1d21, 5);
+    }
+    .rdp-range_end,
+    .rdp-range_start {
+      background: lighten(#1a1d21, 5);
+      box-sizing: content-box;
+      font-weight: 400;
+      font-size: 1rem;
+      button {
+        background: transparent;
+        border: none;
+        color: hsl(var(--foreground));
+      }
+    }
+    .rdp-today:not(.rdp-outside) {
+      color: hsl(var(--foreground));
+    }
+    .rdp-range_end {
+      border-right: 5px solid hsl(var(--foreground));
+    }
+    .rdp-range_start {
+      border-left: 5px solid hsl(var(--foreground));
+    }
+  }
 }
