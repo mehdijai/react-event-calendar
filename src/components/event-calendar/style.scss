@@ -1,6 +1,6 @@
-$border-color: #303030;
 $border-width: 1px;
-$value-capsule-bg: #2b2b2b;
+$value-capsule-bg: lighten($black-color, 5);
+$border-color: lighten($black-color, 3);
 $event-bg-color: #177fbb;
 $event-bg-color_canceled: #e23636;
 $event-bg-color_pending: #d28d1e;
@@ -8,9 +8,11 @@ $event-bg-color_pending: #d28d1e;
 .event-calendar {
   user-select: none;
   border-radius: 0.375rem;
-  background-color: #1a1d21;
-  color: white;
+  background-color: $black-color;
+
+  color: $white-color;
   width: fit-content;
+  overflow: hidden;
   .controls {
     display: flex;
     align-items: center;
@@ -18,6 +20,7 @@ $event-bg-color_pending: #d28d1e;
     padding: 10px;
     .control-icon {
       background-color: $value-capsule-bg;
+      color: $white-color;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -35,7 +38,7 @@ $event-bg-color_pending: #d28d1e;
       justify-content: center;
       font-size: 0.9rem;
       font-weight: 600;
-      color: #989898;
+      color: $gray-color;
       gap: 3px;
     }
   }

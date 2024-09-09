@@ -1,28 +1,18 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
-    bundle: path.resolve(__dirname, "src/index.tsx"),
+    bundle: path.resolve(__dirname, "src/index.ts"),
   },
   output: {
-    path: path.resolve(__dirname, ".out"),
+    path: path.resolve(__dirname, "dist"),
     filename: "[name][contenthash].js",
+    chunkFilename: "[name].[contenthash].js",
     clean: true,
   },
   devtool: "source-map",
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, ".out"),
-    },
-    port: 3000,
-    open: false,
-    hot: true,
-    compress: true,
-    historyApiFallback: true,
-  },
   module: {
     rules: [
       {
@@ -58,11 +48,9 @@ module.exports = {
       }),
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "React Event Calendar",
-      filename: "index.html",
-      template: path.resolve(__dirname, "public/index.html"),
-    }),
-  ],
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
 };

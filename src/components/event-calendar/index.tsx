@@ -1,12 +1,12 @@
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { EventCalendarCore } from "@/lib/event-calendar-core";
 import moment from "moment";
-import { useCallback, useEffect, useMemo, useState } from "react";
 import "./style.scss";
 import { cn } from "@/lib/utils";
 import { addWeeks, formatHour, getDayName, subWeeks } from "@/lib/date-utils";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { Tooltip } from "../tooltip";
-import DatePicker from "../date-picker";
+import Tooltip from "@/components/tooltip";
+import DatePicker from "@/components/date-picker";
 
 export default function EventCalendar({
   values,

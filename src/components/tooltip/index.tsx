@@ -5,7 +5,7 @@ type TooltipDirection = "top" | "right" | "bottom" | "left";
 
 const TooltipContext = createContext(false);
 
-export function Tooltip({ children }: { children: ReactNode }) {
+export default function Tooltip({ children }: { children: ReactNode }) {
   const [active, setActive] = useState(false);
 
   const showTip = () => {

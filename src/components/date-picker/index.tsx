@@ -1,7 +1,7 @@
 import { endOfWeek, startOfWeek } from "date-fns";
 import moment from "moment";
 import { useCallback, useEffect, useState } from "react";
-import Calendar from "../calendar";
+import Calendar from "@/components/calendar";
 import "./style.scss";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "build": "webpack",
+    "build:demo": "webpack --mode production",
     "dev": "webpack serve",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "build": "webpack --config ./webpack.config.pack.js"
   },
   "keywords": [
     "react",

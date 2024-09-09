@@ -4,14 +4,15 @@
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    border: 1px solid hsl(206, 6%, 23%);
+    border: 1px solid $gray-color;
+    color: darken($white-color, 30);
     border-radius: 0.5rem;
     padding: 0.6rem 0.8rem;
     font-size: 0.8rem;
     cursor: pointer;
     transition: background 0.2s ease-out;
     &:hover {
-      background-color: darken(#1a1d21, 1);
+      background-color: darken($black-color, 1);
     }
   }
   .date-picker {
@@ -20,46 +21,52 @@
     top: 100%;
     left: 50%;
     transform: translate(-50%, 0.5rem);
-    border-radius: 0.375rem;
-    color: hsl(var(--foreground));
-    box-shadow: 0 4px 6px hsl(var(--background) / 0.1);
     z-index: 50;
 
     &.show {
       display: block;
     }
 
-    .rdp-root {
-      --rdp-accent-color: hsl(
-        var(--foreground)
-      ); /* Change the accent color to indigo. */
-      --rdp-accent-background-color: #f0f0f0; /* Change the accent background color. */
-      /* Add more CSS variables here. */
+    .rdp-chevron {
+      fill: $primary-color;
     }
 
+    .rdp-root {
+      border-radius: 0.375rem;
+      box-shadow: 0 4px 6px rgba($black-color, 0.3);
+      color: $white-color;
+      background-color: lighten($black-color, 2);
+      border-right: 5px solid $primary-color;
+      border: 1px solid $gray-color;
+      padding: 1rem;
+    }
+    .rdp-day:hover {
+      background-color: lighten($black-color, 4);
+    }
     .rdp-selected {
-      background: lighten(#1a1d21, 5);
+      background: lighten($black-color, 5);
+      border-radius: 0.2rem;
     }
     .rdp-range_end,
     .rdp-range_start {
-      background: lighten(#1a1d21, 5);
+      background: lighten($black-color, 8);
       box-sizing: content-box;
       font-weight: 400;
       font-size: 1rem;
       button {
         background: transparent;
         border: none;
-        color: hsl(var(--foreground));
+        color: $primary-color;
       }
     }
     .rdp-today:not(.rdp-outside) {
-      color: hsl(var(--foreground));
+      color: $primary-color;
     }
     .rdp-range_end {
-      border-right: 5px solid hsl(var(--foreground));
+      border-right: 5px solid $primary-color;
     }
     .rdp-range_start {
-      border-left: 5px solid hsl(var(--foreground));
+      border-left: 5px solid $primary-color;
     }
   }
 }
